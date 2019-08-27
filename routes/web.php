@@ -1,10 +1,10 @@
 <?php
 
-Route::get('login','LoginController@getLogin');
+//Route::get('login','LoginController@getLogin');
 
-Route::post('loginpost','LoginController@postLogin');
+//Route::post('loginpost','LoginController@postLogin');
 
-Route::get('index','HomeController@index');
+//Route::get('index','HomeController@index');
 
 Route::get('index/post',['uses' => 'Post@index', 'as' => 'index.post']);
 

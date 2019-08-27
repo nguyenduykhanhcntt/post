@@ -8,13 +8,12 @@ use App\PostNew;
 
 class Post extends Controller
 {
-    protected $errors = [
-        'id' => 'ID Not Found',
-        'posts' => 'Không được để trống'
-    ];
-
     protected $rules = [
         'posts' => 'required'
+    ];
+
+    protected $errors = [
+        'posts' => 'Không được để trống'
     ];
 
     public function index(Request $request)
@@ -38,7 +37,7 @@ class Post extends Controller
 
     public function add(Request $request)
     {
-        $this->validate($request , $this->rules, $this->messages);
+        $this->validate($request , $this->rules, $this->errors);
         $data = new PostNew();
         if (empty($data)) {
             return abort(404);
