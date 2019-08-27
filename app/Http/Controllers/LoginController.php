@@ -28,12 +28,10 @@ class LoginController extends Controller
     {
         $email = $request->get('email');
 		$pass = $request->get('password');
-		$this->validate($request,$this->rules, $this->messages);
+		$this->validate($request, $this->rules, $this->messages);
 
 		if( Auth::attempt(['email' => $email, 'password' =>$pass])) {
-			$data = Auth::User();
-			print_r($data);exit();
-			return view('index' , [ 'data' => $data ]);
+			return view('index');
 		}else {
 			return 'Tài khoản không tồn tại để đăng nhập <a href="login">Quay Lại</a>';
 		}

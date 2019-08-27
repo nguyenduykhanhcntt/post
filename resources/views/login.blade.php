@@ -1,8 +1,3 @@
-<?php
-	if ($errors->all()){
-		print_r($errors->all());
-	}
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,6 +20,13 @@
 					Password: <input type="text" name="password"> <br>
 					<input type="submit" name="login">
 				</form>
+				<?php
+				if ($errors->all()){
+					foreach($errors->all() as $value){
+						print_r($value.'<br>');
+					}
+				}
+				?>
 			</div>
 		</div>
 	</div>
