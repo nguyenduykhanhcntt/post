@@ -6,7 +6,7 @@
             <td>Name</td>
         </tr>
         <tr>
-            <td><input name="posts"></td>
+            <td><input type="text" value="" name="posts"></td>
         </tr>
     </table>
     <input type="submit" name="submit">
