@@ -85,4 +85,21 @@ class Post extends Controller
 
         echo $comment->byUser->email;
     }
+
+    public function phone()
+    {
+        $phone = '0905142456';  
+        if (
+            9 < strlen($phone) 
+            AND strlen($phone) < 11 
+            AND is_numeric($phone) 
+            AND $phone[0] == 0
+            AND $phone[1] != 0
+            )
+        {
+            echo $phone;               
+        }else{
+            echo 'Số '.$phone.' Không chính xác';
+        }  
+    }
 }

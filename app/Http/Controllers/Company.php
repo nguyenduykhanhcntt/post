@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Companys;
 use App\User;
+use App\Services\CheckPhoneNumber;
 
 class Company extends Controller
 {
@@ -28,6 +29,8 @@ class Company extends Controller
     	return view('company/index', compact('data','companyEdit'));
     }
 
+    protected $is_deleted = 0;
+
     public function show($id)
     {
         $data = DB::table('company')
@@ -39,12 +42,20 @@ class Company extends Controller
         return view('company/show', compact('data'));
     }
 
-    public function add(Request $request){
+    public function add(Request $request, CheckPhoneNumber $checkPhone){
     	$this->validate($request , $this->rules);
+        
+        $phone = $checkPhone->phoneNumber($request->get('phone'));
+        if (isset($checkPhone->errorPhone)) {
+            print_r($checkPhone->errorPhone.' Số Phone này không đúng định dạng');
+        }
+        echo $phone; exit();
+
     	$data = new Companys;
     	$data->name_company = $request->get('name_company');
     	$data->address = $request->get('address');
-    	$data->phone = $request->get('phone');
+    	$data->phone = $phone;
+        $data->is_deleted = $this->is_deleted;
     	$data->save();
     	return redirect('index/company');
     }

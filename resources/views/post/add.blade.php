@@ -1,6 +1,6 @@
 <h2>Insert Post</h2>
 <hr>
-<form action="{{ route('index.add')}}" method="post">{{ csrf_field() }}
+<form action="{{ route('index.post.add')}}" method="post">{{ csrf_field() }}
     <table class="table">
         <tr>
             <td>Name</td>

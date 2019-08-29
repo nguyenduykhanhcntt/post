@@ -6,26 +6,43 @@
 
 //Route::get('index','HomeController@index');
 
-Route::get('index/post',['uses' => 'Post@index', 'as' => 'index.post']);
+Route::group(['prefix'=>'index/post'], function(){
 
-Route::get('index/show/{id}',['uses' => 'Post@show', 'as' => 'show.post']);
+	Route::get('/',['uses' => 'Post@index', 'as' => 'index.post']);
 
-Route::post('index/add',['uses' => 'Post@add', 'as' => 'index.add']);
+	Route::get('/show/{id}',['uses' => 'Post@show', 'as' => 'index.post.show']);
 
-Route::post('index/edit/post/{id}', ['uses' => 'Post@editPost', 'as' => 'index.edit.post']);
+	Route::post('/add',['uses' => 'Post@add', 'as' => 'index.post.add']);
 
-Route::get('index/delete/post/{id}', ['uses' => 'Post@delete', 'as' => 'index.edit.delete']);
+	Route::post('/edit/{id}', ['uses' => 'Post@editPost', 'as' => 'index.post.edit']);
+
+	Route::get('/delete/{id}', ['uses' => 'Post@delete', 'as' => 'index.post.delete']);
+});
+
+
+Route::group(['prefix'=>'index/company'],function(){
+
+    Route::get('/', ['uses' => 'Company@index', 'as' => 'index.company']);
+
+    Route::get('/{id}', ['uses' => 'Company@show', 'as' => 'index.company.show']);
+
+	Route::post('/add', ['uses' => 'Company@add', 'as' => 'index.company.add']);
+
+	Route::post('/edit/{id}', ['uses' => 'Company@edit', 'as' => 'index.company.edit']);
+
+	Route::get('/delete/{id}', ['uses' => 'Company@delete', 'as' => 'index.company.delete']);
+});
+
+
+
+// Test số phone
+Route::get('phone', ['uses' => 'Post@phone', 'as' => 'phone']);
+// Test Đăng ký provider
+use App\Services\CheckPhoneNumber;
+Route::get('phone/{phone}', function(CheckPhoneNumber $s ,$a){
+	$d =  $s->phoneNumber($a);
+	echo $d;
+});
+Route::get('oke', 'GetLog@index');
 
 Route::get('lk', ['uses' => 'Post@lk', 'as' => 'lk']);
-
-Route::get('index/company', ['uses' => 'Company@index', 'as' => 'index.company']);
-
-Route::get('index/company/show/{id}', ['uses' => 'Company@show', 'as' => 'index.company.show']);
-
-Route::post('index/company/add', ['uses' => 'Company@add', 'as' => 'index.company.add']);
-
-Route::post('index/company/edit/{id}', ['uses' => 'Company@edit', 'as' => 'index.company.edit']);
-
-Route::get('index/company/delete/{id}', ['uses' => 'Company@delete', 'as' => 'index.company.delete']);
-
-//Route::get('oke', 'GetLog@index');

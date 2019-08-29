@@ -1,6 +1,6 @@
 <h2>Edit Post</h2>
 <hr>
-<form action="{{ route('index.edit.post', ['id' => $edit->id ])}}" method="post">{{ csrf_field() }}
+<form action="{{ route('index.post.edit', ['id' => $edit->id ])}}" method="post">{{ csrf_field() }}
         <table class="table">
             <tr>
                 <td>ID</td>
