@@ -16,6 +16,10 @@ class Post extends Controller
         'posts' => 'Không được để trống'
     ];
 
+    protected $not_is_deleted = 0;
+
+    protected $is_deleted = 1;
+
     public function index(Request $request)
     {
         $edit = null;
@@ -25,7 +29,7 @@ class Post extends Controller
                 ->first();
         }
         $data = DB::table('post_news')
-            ->where('is_deleted', 0)
+            ->where('is_deleted', $this->not_is_deleted)
             ->get();
         return view('post/index', compact('data', 'edit'));
     }
@@ -44,7 +48,7 @@ class Post extends Controller
     public function add(Request $request)
     {
         /**
-         * @throw ValidationException
+         * @return throw ValidationException
          */
         $this->validate($request , $this->rules, $this->errors);
         $data = new PostNew();
@@ -52,14 +56,16 @@ class Post extends Controller
             return abort(404);
         }
         $data->posts = $request->get('posts');
-        $data->is_deleted = 0;
+        $data->is_deleted = $this->not_is_deleted;
         $data->save();
         return redirect('index/post');
     }
 
     public function editPost($id, Request $request)
     {
-        // note cho validate het bao loi vàng
+        /**
+         * @return throw ValidationException
+         */
         $this->validate($request , $this->rules, $this->errors);
         $data = DB::table('post_news')->where('id', $id);
         if (!empty($data)) {
@@ -74,32 +80,10 @@ class Post extends Controller
         $data = DB::table('post_news')->where('id', $id);
         if (!empty($data)) {
             $data->update([
-                'is_deleted' => 1
+                'is_deleted' => $this->is_deleted
             ]);
         }
         return redirect('index/post');
     }
 
-    public function lk(){
-        $comment = PostNew::find(1);
-
-        echo $comment->byUser->email;
-    }
-
-    public function phone()
-    {
-        $phone = '0905142456';  
-        if (
-            9 < strlen($phone) 
-            AND strlen($phone) < 11 
-            AND is_numeric($phone) 
-            AND $phone[0] == 0
-            AND $phone[1] != 0
-            )
-        {
-            echo $phone;               
-        }else{
-            echo 'Số '.$phone.' Không chính xác';
-        }  
-    }
 }

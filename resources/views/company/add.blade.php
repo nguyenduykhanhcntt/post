@@ -1,4 +1,4 @@
-<h2>Insert Post</h2>
+<h2>Insert Company</h2>
 <hr>
 <form action="{{ route('index.company.add')}}" method="post">{{ csrf_field() }}
     <table class="table">

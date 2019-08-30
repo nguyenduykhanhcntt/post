@@ -2,16 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fe3218a8-cd3e-47af-9a5f-2a664cfdf75a" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/company/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Post.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Post.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/PostNew.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/PostNew.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/post/add.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/post/add.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/post/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/post/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/post/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/post/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/post/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/post/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Company.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Company.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/CheckParam.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/CheckParam.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/CheckPhoneNumber.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/CheckPhoneNumber.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/validation.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/validation.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -171,6 +166,7 @@
       <updated>1566727267293</updated>
       <workItem from="1566819328455" duration="51806000" />
       <workItem from="1567000205082" duration="3246000" />
+      <workItem from="1567146260632" duration="8097000" />
     </task>
     <servers />
   </component>

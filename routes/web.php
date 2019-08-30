@@ -35,14 +35,11 @@ Route::group(['prefix'=>'index/company'],function(){
 
 
 
-// Test số phone
-Route::get('phone', ['uses' => 'Post@phone', 'as' => 'phone']);
 // Test Đăng ký provider
 use App\Services\CheckPhoneNumber;
 Route::get('phone/{phone}', function(CheckPhoneNumber $s ,$a){
 	$d =  $s->phoneNumber($a);
 	echo $d;
 });
-Route::get('oke', 'GetLog@index');
 
-Route::get('lk', ['uses' => 'Post@lk', 'as' => 'lk']);
+Route::get('oke', 'GetLog@index');
